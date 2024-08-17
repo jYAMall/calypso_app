@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1067290413907",
+    "project_id": "calypsoapp-db01e",
+    "storage_bucket": "calypsoapp-db01e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067290413907:android:a883498013f66fc02f6fa6",
+        "android_client_info": {
+          "package_name": "com.company.calypso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2l6Y42ufX7p46q8fuBzm3wTEuIHAvrcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
