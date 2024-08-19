@@ -55,6 +55,8 @@
 
 	<key>NSCameraUsageDescription</key>
     <string>In order to scan for barcodes and QR codes, this app requires permission to access the camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This is necessary to upload photos to your profile.</string>
 	<key>PermissionGroupNotification</key>
     <string>MealPlanner needs to send you notifications about meal updates and other important messages.</string>
 
@@ -79,5 +81,9 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>
