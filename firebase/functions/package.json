@@ -18,10 +18,10 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "serve": "firebase -P calypsoapp-db01e emulators:start --only functions",
-    "shell": "firebase -P calypsoapp-db01e functions:shell",
+    "serve": "firebase -P calypso-4f4eb emulators:start --only functions",
+    "shell": "firebase -P calypso-4f4eb functions:shell",
     "start": "npm run shell",
-    "logs": "firebase -P calypsoapp-db01e functions:log",
+    "logs": "firebase -P calypso-4f4eb functions:log",
     "compile": "cp ../../tsconfig.template.json ./tsconfig-compile.json && tsc --project tsconfig-compile.json"
   },
   "engines": {

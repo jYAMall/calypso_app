@@ -1,11 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/components/custom_appbar_widget.dart';
+import '/components/custom_appbar/custom_appbar_widget.dart';
 import '/components/title_with_subtitle/title_with_subtitle_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,12 +73,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       actionButtonAction: () async {
                         logFirebaseEvent(
                             'EDIT_PROFILE_Container_or1jni5i_CALLBACK');
-                        logFirebaseEvent('customAppbar_backend_call');
-
-                        await currentUserReference!
-                            .update(createUsersRecordData(
-                          displayName: _model.fullNameTextController.text,
-                        ));
                         logFirebaseEvent('customAppbar_update_page_state');
                         _model.unsavedChanges = false;
                         setState(() {});

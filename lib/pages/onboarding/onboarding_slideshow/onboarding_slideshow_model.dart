@@ -1,4 +1,4 @@
-import '/components/custom_appbar_widget.dart';
+import '/components/custom_appbar/custom_appbar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

@@ -5,13 +5,13 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyCthBoh7_U8jQMmFpe04rzIb5BvpOiIec0",
-            authDomain: "calypsoapp-db01e.firebaseapp.com",
-            projectId: "calypsoapp-db01e",
-            storageBucket: "calypsoapp-db01e.appspot.com",
-            messagingSenderId: "1067290413907",
-            appId: "1:1067290413907:web:2fb9442bcbbcc8ca2f6fa6",
-            measurementId: "G-2PMWNH3363"));
+            apiKey: "AIzaSyBfibRmQJ8JKGli07Ul17ay7P3bCEKnfrM",
+            authDomain: "calypso-4f4eb.firebaseapp.com",
+            projectId: "calypso-4f4eb",
+            storageBucket: "calypso-4f4eb.appspot.com",
+            messagingSenderId: "1006126369261",
+            appId: "1:1006126369261:web:dc610217a4863aa583ffe4",
+            measurementId: "G-E4RY89ZN0T"));
   } else {
     await Firebase.initializeApp();
   }

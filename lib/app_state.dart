@@ -23,41 +23,6 @@ class FFAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<int> _codesValue = [];
-  List<int> get codesValue => _codesValue;
-  set codesValue(List<int> value) {
-    _codesValue = value;
-  }
-
-  void addToCodesValue(int value) {
-    codesValue.add(value);
-  }
-
-  void removeFromCodesValue(int value) {
-    codesValue.remove(value);
-  }
-
-  void removeAtIndexFromCodesValue(int index) {
-    codesValue.removeAt(index);
-  }
-
-  void updateCodesValueAtIndex(
-    int index,
-    int Function(int) updateFn,
-  ) {
-    codesValue[index] = updateFn(_codesValue[index]);
-  }
-
-  void insertAtIndexInCodesValue(int index, int value) {
-    codesValue.insert(index, value);
-  }
-
-  int _totalValue = 0;
-  int get totalValue => _totalValue;
-  set totalValue(int value) {
-    _totalValue = value;
-  }
-
   DocumentReference? _codeDatails;
   DocumentReference? get codeDatails => _codeDatails;
   set codeDatails(DocumentReference? value) {

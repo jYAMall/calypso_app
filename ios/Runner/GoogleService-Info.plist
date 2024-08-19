@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyDVrnmi_moLEPdci7eCT-r0hYll0CaMgxs</string>
+	<string>AIzaSyCS_PQsL_TuSIAtOUlspMXu-cDk2sbp5pY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1067290413907</string>
+	<string>1006126369261</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.company.calypso</string>
 	<key>PROJECT_ID</key>
-	<string>calypsoapp-db01e</string>
+	<string>calypso-4f4eb</string>
 	<key>STORAGE_BUCKET</key>
-	<string>calypsoapp-db01e.appspot.com</string>
+	<string>calypso-4f4eb.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1067290413907:ios:23facbdefcf1f1f92f6fa6</string>
+	<string>1:1006126369261:ios:e84921b7570aed4583ffe4</string>
 </dict>
 </plist>

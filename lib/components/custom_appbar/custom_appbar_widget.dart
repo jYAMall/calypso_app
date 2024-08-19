@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'custom_appbar_model.dart';
@@ -113,26 +112,8 @@ class _CustomAppbarWidgetState extends State<CustomAppbarWidget> {
                       color: Colors.transparent,
                       width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(25.0),
+                    borderRadius: BorderRadius.circular(0.0),
                   ),
-                ),
-              if (widget!.optionsButton)
-                FlutterFlowIconButton(
-                  borderColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  borderRadius: 24.0,
-                  borderWidth: 1.0,
-                  buttonSize: 44.0,
-                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  icon: FaIcon(
-                    FontAwesomeIcons.ellipsisH,
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    size: 18.0,
-                  ),
-                  onPressed: () async {
-                    logFirebaseEvent('CUSTOM_APPBAR_COMP_ellipsisH_ICN_ON_TAP');
-                    logFirebaseEvent('IconButton_execute_callback');
-                    await widget.optionsButtonAction?.call();
-                  },
                 ),
             ].divide(SizedBox(width: 8.0)),
           ),
