@@ -6,6 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_model.dart';
@@ -76,9 +77,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
-                                  'assets/images/Logo_Calypso_Black-300x83.png',
-                                  width: 150.0,
-                                  height: 56.0,
+                                  'assets/images/Ship_top_calypso_logo.png',
+                                  width: 100.0,
+                                  height: 72.0,
                                   fit: BoxFit.fitWidth,
                                 ),
                               ),
@@ -366,8 +367,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
                                   'assets/images/vecteezy_doodle-freehand-drawing-of-united-states-of-america-map-v_.png',
-                                  width: MediaQuery.sizeOf(context).width * 0.9,
-                                  height: 200.0,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: double.infinity,
                                   fit: BoxFit.contain,
                                   alignment: Alignment(0.0, 0.0),
                                 ),

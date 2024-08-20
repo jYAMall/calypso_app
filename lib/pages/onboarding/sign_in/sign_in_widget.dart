@@ -8,6 +8,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sign_in_model.dart';
@@ -110,7 +111,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                              12.0, 0.0, 12.0, 0.0),
                           child: Form(
                             key: _model.formKey,
                             autovalidateMode: AutovalidateMode.disabled,
@@ -360,7 +361,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 32.0, 16.0, 0.0),
+                              12.0, 32.0, 12.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(
@@ -410,54 +411,60 @@ class _SignInWidgetState extends State<SignInWidget> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'SIGN_IN_PAGE_Row_4ukbm94e_ON_TAP');
-                              logFirebaseEvent('Row_navigate_to');
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'SIGN_IN_PAGE_Row_4ukbm94e_ON_TAP');
+                            logFirebaseEvent('Row_navigate_to');
 
-                              context.pushNamed('ForgotPassword');
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 16.0, 0.0, 16.0),
-                                  child: Text(
-                                    'I don\'t remember my password',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
+                            context.pushNamed('ForgotPassword');
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 32.0, 0.0, 32.0),
+                                child: Text(
+                                  'I don\'t remember my password',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                        Flexible(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                        isAndroid
+                            ? Container()
+                            : Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 12.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'SIGN_IN_CONTINUE_WITH_APPLE_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_auth');
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    final user = await authManager
+                                        .signInWithApple(context);
+                                    if (user == null) {
+                                      return;
+                                    }
+                                    logFirebaseEvent('Button_navigate_to');
+
+                                    context.pushNamedAuth(
+                                        'Home', context.mounted);
                                   },
                                   text: 'Continue with Apple',
                                   icon: Icon(
@@ -466,6 +473,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     size: 20.0,
                                   ),
                                   options: FFButtonOptions(
+                                    width: double.infinity,
                                     height: 50.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 0.0),
@@ -491,10 +499,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
+                              ),
                       ],
                     ),
                   ),
@@ -518,7 +523,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          24.0, 16.0, 24.0, 20.0),
+                          12.0, 16.0, 12.0, 20.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,

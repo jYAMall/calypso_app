@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'splash_model.dart';
@@ -60,15 +61,9 @@ class _SplashWidgetState extends State<SplashWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0.0, -1.0),
                             child: Container(
-                              width: 150.0,
-                              height: 56.0,
+                              width: 100.0,
+                              height: 72.0,
                               decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.fitWidth,
-                                  image: Image.asset(
-                                    'assets/images/Logo_Calypso_Black-300x83.png',
-                                  ).image,
-                                ),
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
                                   bottomRight: Radius.circular(0.0),
@@ -76,6 +71,12 @@ class _SplashWidgetState extends State<SplashWidget> {
                                   topRight: Radius.circular(0.0),
                                 ),
                                 shape: BoxShape.rectangle,
+                              ),
+                              child: Image.asset(
+                                'assets/images/Ship_top_calypso_logo.png',
+                                width: 100.0,
+                                height: 72.0,
+                                fit: BoxFit.fitWidth,
                               ),
                             ),
                           ),

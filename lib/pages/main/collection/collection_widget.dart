@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
@@ -61,7 +62,7 @@ class _CollectionWidgetState extends State<CollectionWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 8.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -96,15 +97,21 @@ class _CollectionWidgetState extends State<CollectionWidget> {
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 8.0),
-                  child: Text(
-                    'Total:',
-                    textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 16.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => Text(
+                      'Total: ${valueOrDefault<String>(
+                        valueOrDefault(currentUserDocument?.tokensValue, 0)
+                            .toString(),
+                        '0',
+                      )} CWT',
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
                   ),
                 ),
               ),
@@ -137,30 +144,17 @@ class _CollectionWidgetState extends State<CollectionWidget> {
                           builderDelegate:
                               PagedChildBuilderDelegate<QrCodesRecord>(
                             // Customize what your widget looks like when it's loading the first page.
-                            firstPageProgressIndicatorBuilder: (_) => Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
-                              ),
+                            firstPageProgressIndicatorBuilder: (_) =>
+                                Image.asset(
+                              'assets/images/app_launcher_icon_gray.png',
                             ),
                             // Customize what your widget looks like when it's loading another page.
-                            newPageProgressIndicatorBuilder: (_) => Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
-                              ),
+                            newPageProgressIndicatorBuilder: (_) => Image.asset(
+                              'assets/images/app_launcher_icon_gray.png',
                             ),
-
+                            noItemsFoundIndicatorBuilder: (_) => Image.asset(
+                              'assets/images/app_launcher_icon_gray.png',
+                            ),
                             itemBuilder: (context, _, listViewIndex) {
                               final listViewQrCodesRecord = _model
                                   .listViewPagingController!

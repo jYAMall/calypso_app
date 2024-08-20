@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'forgot_password_model.dart';
@@ -93,7 +94,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                              12.0, 0.0, 12.0, 0.0),
                           child: Form(
                             key: _model.formKey,
                             autovalidateMode: AutovalidateMode.disabled,
@@ -257,7 +258,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 32.0, 16.0, 0.0),
+                              12.0, 32.0, 12.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(
