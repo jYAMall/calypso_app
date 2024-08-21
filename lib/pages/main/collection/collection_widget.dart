@@ -139,6 +139,7 @@ class _CollectionWidgetState extends State<CollectionWidget> {
                                   .orderBy('timestamp', descending: true),
                             ),
                             padding: EdgeInsets.zero,
+                            primary: false,
                             shrinkWrap: true,
                             reverse: false,
                             scrollDirection: Axis.vertical,
@@ -183,14 +184,16 @@ class _CollectionWidgetState extends State<CollectionWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          FlutterFlowWebView(
-                                            content:
-                                                listViewQrCodesRecord.imageUrl,
-                                            bypass: false,
-                                            width: 150.0,
-                                            height: 150.0,
-                                            verticalScroll: false,
-                                            horizontalScroll: false,
+                                          Flexible(
+                                            child: FlutterFlowWebView(
+                                              content: listViewQrCodesRecord
+                                                  .imageUrl,
+                                              bypass: false,
+                                              width: 150.0,
+                                              height: 150.0,
+                                              verticalScroll: false,
+                                              horizontalScroll: false,
+                                            ),
                                           ),
                                           Flexible(
                                             child: Padding(
