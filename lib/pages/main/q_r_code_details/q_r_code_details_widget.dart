@@ -51,41 +51,47 @@ class _QRCodeDetailsWidgetState extends State<QRCodeDetailsWidget> {
         ScanMode.QR,
       );
 
-      logFirebaseEvent('QRCodeDetails_firestore_query');
-      _model.scanResult = await queryQrCodesRecordOnce(
-        queryBuilder: (qrCodesRecord) => qrCodesRecord.where(
-          'code',
-          isEqualTo: _model.scanedCode,
-        ),
-        singleRecord: true,
-      ).then((s) => s.firstOrNull);
-      if (_model.scanResult?.userId == null ||
-          _model.scanResult?.userId == '') {
-        logFirebaseEvent('QRCodeDetails_update_app_state');
-        FFAppState().codeDatails = _model.scanResult?.reference;
-        setState(() {});
+      if (_model.scanedCode != null && _model.scanedCode != '') {
+        logFirebaseEvent('QRCodeDetails_firestore_query');
+        _model.scanResult = await queryQrCodesRecordOnce(
+          queryBuilder: (qrCodesRecord) => qrCodesRecord.where(
+            'code',
+            isEqualTo: _model.scanedCode,
+          ),
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        if (_model.scanResult?.userId == null ||
+            _model.scanResult?.userId == '') {
+          logFirebaseEvent('QRCodeDetails_update_app_state');
+          FFAppState().codeDatails = _model.scanResult?.reference;
+          setState(() {});
+        } else {
+          logFirebaseEvent('QRCodeDetails_alert_dialog');
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  title: Text(_model.scanedCode!),
+                  content: Text('This code has already been used'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          logFirebaseEvent('QRCodeDetails_navigate_to');
+
+          context.pushNamed('Collection');
+        }
       } else {
-        logFirebaseEvent('QRCodeDetails_alert_dialog');
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                title: Text(_model.scanedCode!),
-                content: Text('This code has already been used'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
         logFirebaseEvent('QRCodeDetails_navigate_to');
 
-        context.pushNamed('Collection');
+        context.pushNamed('Home');
       }
     });
   }
