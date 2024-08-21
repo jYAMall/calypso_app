@@ -126,7 +126,7 @@ class _CollectionWidgetState extends State<CollectionWidget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Expanded(
+                        Flexible(
                           child: PagedListView<DocumentSnapshot<Object?>?,
                               QrCodesRecord>(
                             pagingController: _model.setListViewController(
@@ -155,9 +155,7 @@ class _CollectionWidgetState extends State<CollectionWidget> {
                                   Image.asset(
                                 'assets/images/app_launcher_icon_gray.png',
                               ),
-                              noItemsFoundIndicatorBuilder: (_) => Image.asset(
-                                'assets/images/app_launcher_icon_gray.png',
-                              ),
+
                               itemBuilder: (context, _, listViewIndex) {
                                 final listViewQrCodesRecord = _model
                                     .listViewPagingController!
